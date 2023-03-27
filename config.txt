@@ -1,0 +1,2 @@
+IDEAS PATH: ideas.csv
+OUTPUT FOLDER: videos
