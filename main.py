@@ -11,6 +11,7 @@ import createvideo
 import exportmeta
 from video import Video
 
+PER_VIDEO_DELAY = 1800 # 30 mins
 
 def getIdeas(configs):
     ideas = []
@@ -39,6 +40,7 @@ def main():
         exportmeta.main(working_video)
         #INCREASES VIDEO COMPLETION COUNT
         index += 1
+        time.sleep(PER_VIDEO_DELAY)
 
 def main2():
     vid = Video('how ai will take over,essay,100,False')

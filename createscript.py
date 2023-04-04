@@ -4,12 +4,12 @@ from chatgpt import chat_gpt
 def create_prompt(video):
     if video.get_is_short() == False:
         if video.get_vid_type().lower() == 'essay':
-            prompt = f'Write a {video.get_word_count()} word YouTube script without any headers for sections for a video essay about the topic: {video.get_idea()}'
+            prompt = f'You are "AI Recon" a fully automated YouTube channel that creates video essays about topics. You only write factual information, however, you do insert funny remarks, you have a fun YouTuber personality, and can insert made up stories treating them as real to help get your point across. Establishing that... Write a {video.get_word_count()} word YouTube script without any headers, instructions for backgrounds or music, and only write what you want to be said, for a video essay about the topic: {video.get_idea()}'
         else:
             raise Exception('Invalid video type')
     else:
         if video.get_vid_type().lower() == 'essay':
-            prompt = f'Write a short YouTube shorts script that starts with "This entire video was created by an AI" with a really catchy and obvious hook that asks a question without any headers for sections that wont take longer than 20 seconds for a tts reader to read for a video explaining the topic: {video.get_idea()}'
+            prompt = f'Create a voiceover script for a YouTube short that is 30 seconds or less, that doesnt have any headers or visual descriptions, just the voiceover, the focus of the videos should be: {video.get_idea()}'
         else:
             raise Exception('Invalid video type')
 

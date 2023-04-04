@@ -14,7 +14,7 @@ def get_config(configpath='config.txt'):
     return configs
 
 def clean_text(text):
-    cleaned = text
+    cleaned = text.strip()
     bad_characters = ['/', fr'\'', ':', '*', '?', '"', '<', '>', '|']
     for character in bad_characters:
         cleaned = cleaned.replace(character, '')

@@ -7,7 +7,7 @@ from PIL import Image, PngImagePlugin
 URL = "http://127.0.0.1:7860"
 
 
-def generate_image(prompt, path, *, width=1280, height=720, steps=42, negative_prompt='text'):
+def generate_image(prompt, path, *, width=1280, height=720, steps=50, negative_prompt='text'):
     payload = {
         "prompt": prompt,
         "steps": steps,

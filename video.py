@@ -25,11 +25,11 @@ class Video:
     def generate_path(self):
         configs = get_config()
         current_files = os.listdir(f'{configs["output_path"]}')
-        if self._idea[:35] not in current_files:
+        if self._idea[:35].strip() not in current_files:
             os.mkdir(fr'{configs["output_path"]}\{self._idea[:35]}')
         else:
             print('PROJECT FILE ALREADY CREATED')
-        return fr'{configs["output_path"]}\{self._idea[:35]}'
+        return fr'{configs["output_path"]}\{self._idea[:35].strip()}'
 
     def get_idea(self):
         return self._idea
