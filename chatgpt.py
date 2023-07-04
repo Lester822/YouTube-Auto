@@ -40,7 +40,7 @@ def chat_gpt(inquiry):
                 if line.strip() != '':
                     reduced.append(line.strip())
             print(inquiry)
-            start = reduced.index(inquiry) + 1
+            start = reduced.index("ChatGPT") + 1
             print(reduced)
             end = reduced.index('Regenerate response')
             output = reduced[start:end]

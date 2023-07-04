@@ -7,12 +7,13 @@ from PIL import Image, PngImagePlugin
 URL = "http://127.0.0.1:7860"
 
 
-def generate_image(prompt, path, *, width=1280, height=720, steps=50, negative_prompt='text'):
+def generate_image(prompt, path, *, width=1280, height=720, steps=50, negative_prompt=''):
     payload = {
         "prompt": prompt,
         "steps": steps,
         "width": width,
         "height": height,
+        "restore_faces": True,
         "negative_prompt": negative_prompt
     }
     response = requests.post(url=f'{URL}/sdapi/v1/txt2img', json=payload)

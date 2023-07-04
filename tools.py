@@ -9,8 +9,8 @@ def get_config(configpath='config.txt'):
     configs = {}
 
     # EVERYTHING BELOW IS ESTABLISHING DICTIONARY!
-    configs['ideapath'] = lines[0][12:]
-    configs['output_path'] = lines[1][15:]
+    configs['ideapath'] = lines[0][13:-1]  # The Path to the "idea" csv
+    configs['output_path'] = lines[1][16:-1]  # The Path to where videos should be outputted.
     return configs
 
 def clean_text(text):

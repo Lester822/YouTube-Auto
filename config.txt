@@ -1,2 +1,4 @@
-IDEAS PATH: ideas.csv
-OUTPUT FOLDER: videos
+IDEAS PATH: "ideas.csv"
+OUTPUT FOLDER: "videos"
+GENERATE TAGS: "TRUE" # not implemented yet
+GENERATE TWEET: "TRUE" # not implemented yet

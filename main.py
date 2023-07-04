@@ -1,4 +1,5 @@
 from tools import get_config
+from stable import generate_image
 from video import Video
 import time
 import createscript
@@ -11,9 +12,9 @@ import createvideo
 import exportmeta
 from video import Video
 
-PER_VIDEO_DELAY = 1800 # 30 mins
+PER_VIDEO_DELAY = 30 # 1800 = 30 mins // 30 = 30 seconds
 
-def getIdeas(configs):
+def get_ideas(configs):
     ideas = []
     idea_list = open(configs['ideapath'], 'r')
     for idea in idea_list:
@@ -21,15 +22,16 @@ def getIdeas(configs):
     return ideas
 
 def main():
+    generate_image("a test image", fr'test.png', steps=10)
     time.sleep(2)
     configs = get_config()
-    ideas = getIdeas(configs)
+    ideas = get_ideas(configs)
     index = 0
 
-    for idea in ideas:
+    for idea in ideas:  # For every idea in the IDEA LIST
         print(f'GENERATING VIDEO {index+1} of {len(ideas)}')
-        # BULK OF CODE GOES IN HERE'
-        working_video = Video(idea)  # Creates video folder and establishes class
+        # BULK OF CODE GOES IN HERE
+        working_video = Video(idea)  # Creates video folder and establishes the video class
         createscript.main(working_video)  # Writes script and saves as file
         metadata.main(working_video)  # Creates title, description, tags, and thumbnail description
         timeline.main(working_video)  # Creates background image generation
@@ -38,8 +40,13 @@ def main():
         audiogen.main(working_video)
         createvideo.main(working_video)
         exportmeta.main(working_video)
-        #INCREASES VIDEO COMPLETION COUNT
+
+        # INCREASES VIDEO COMPLETION COUNT
+
         index += 1
+
+        # DELAY BETWEEN VIDEO TO COMPLY WITH CHAT-GPT RATE LIMITS
+
         time.sleep(PER_VIDEO_DELAY)
 
 def main2():
